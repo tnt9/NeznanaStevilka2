@@ -42,8 +42,12 @@ class BaseHandler(webapp2.RequestHandler):
 
 class MainHandler(BaseHandler):
     def get(self):
-        parametri = {"sporocilo": "To sem jaz Main Handler"}
-        return self.render_template("index.html", params=parametri)
+        return self.render_template("index.html")
+
+
+class RezultatHandler(BaseHandler):
+    def get(self):
+        return self.render_template("index.html")
 
     def post(self):
         x = self.request.get("vnos")
@@ -56,10 +60,11 @@ class MainHandler(BaseHandler):
         else:
             rezultat = "The number is not correct"
 
-        parametri = {"rezultat": rezultat}
-        return self.render_template("index.html", params=parametri)
+        parametri = {"rezultat": rezultat, "number": number}
+        return self.render_template("rezultat.html", params=parametri)
 
 
 app = webapp2.WSGIApplication([
     webapp2.Route('/', MainHandler),
+    webapp2.Route('/rezultat', RezultatHandler),
 ], debug=True)

@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 application: jinjaunknownnumber
-=======
-application: jinjacalc
->>>>>>> 9f655e56ded0adc6310c342f2e181381dee1a616
+
 version: 1
 runtime: python27
 api_version: 1
